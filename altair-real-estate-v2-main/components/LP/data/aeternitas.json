@@ -1,0 +1,29 @@
+[
+    {
+        "Type": "2BR",
+        "Area": "1,066",
+        "Status": "Available",
+        "NumRooms": 2,
+        "Parking": "Available",
+        "Price": "1.95m to 2.7m",
+        "Image": "/images/LP/aeternitas/2br.webp"
+    },
+    {
+        "Type": "3BR",
+        "Area": "2,250",
+        "Status": "Available",
+        "NumRooms": 3,
+        "Parking": "Available",
+        "Price": "4.4m to 5m",
+        "Image": "/images/LP/aeternitas/3br.webp"
+    },
+    {
+        "Type": "4BR",
+        "Area": "5,400",
+        "Status": "Available",
+        "NumRooms": 4,
+        "Parking": "Available",
+        "Price": "16m",
+        "Image": "/images/LP/aeternitas/4br.webp"
+    }
+]

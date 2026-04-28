@@ -1,0 +1,461 @@
+{
+    "OffPlan": {
+        "Single": {
+            "Overview": "Overview",
+            "Desc": "Property Description",
+            "FloorPlan": "Floor Plans",
+            "PaymentPlan": "PaymentPlan",
+            "Location": "Location",
+            "Similar": "Similar Projects",
+            "Video": "Video",
+            "Type": "Type",
+            "Area": "Total Area",
+            "Price": "Starting Price",
+            "Amenities": "Features & Amenities"
+        },
+        "Hero": {
+            "Title": "Find Your Dream House",
+            "Placeholder": "Search Projects for Buy",
+            "Filter": "Advanced"
+        },
+
+        "Main": {
+            "Title": "Homes For Sale",
+            "Breadcrumb": "For Buy"
+        }
+    },
+    "Secondary": {
+        "Single": {
+            "Overview": "Overview",
+            "Desc": "Property Description",
+            "FloorPlan": "Floor Plans",
+            "PaymentPlan": "PaymentPlan",
+            "Location": "Location",
+            "Similar": "Similar Properties",
+            "Video": "Video",
+            "Type": "Type",
+            "Area": "Total Area",
+            "Price": "Price",
+            "Amenities": "Features & Amenities"
+        },
+        "Hero": {
+            "Title": "Find Your Dream House",
+            "Placeholder": "Search Projects for Buy",
+            "Filter": "Advanced"
+        },
+
+        "Main": {
+            "Title": "Homes For Sale",
+            "Breadcrumb": "For Buy"
+        }
+    },
+    "Rent": {
+        "Single": {
+            "Overview": "Overview",
+            "Desc": "Property Description",
+            "FloorPlan": "Floor Plans",
+            "PaymentPlan": "PaymentPlan",
+            "Location": "Location",
+            "Similar": "Similar Properties",
+            "Video": "Video",
+            "Type": "Type",
+            "Area": "Total Area",
+            "Price": "Price",
+            "Amenities": "Features & Amenities"
+        },
+        "Hero": {
+            "Title": "Find Your Dream House",
+            "Placeholder": "Search Projects for Rent",
+            "Filter": "Advanced"
+        },
+
+        "Main": {
+            "Title": "Homes For Rent",
+            "Breadcrumb": "For Rent"
+        }
+    },
+    "Home": {
+        "Hero": {
+            "Title": " Easy Way to Find a\nPerfect Property",
+            "Download": "Download Brochure",
+            "Watch": "Watch Video",
+            "SearchProducts": "Search Properties for {label}",
+            "Secondary": "Secondary",
+            "Off-Plan": "Off-Plan",
+            "Rent": "Rent"
+        },
+        "Apartments": {
+            "Title": "Explore Apartment Types",
+            "Properties": "Properties"
+        },
+        "Projects": {
+            "Title": "Explore Recent Projects",
+            "View All": "View All"
+        },
+        "HowItWorks": {
+            "Title": "The Best Way to Find\nYour Next Home",
+            "Subtitle": "Choose your next home with\nAltair Real Estate L.L.C",
+            "Button": "Book Free Consultation",
+            "Items": {
+                "1": {
+                    "Title": "Search Your Dream Home",
+                    "Desc": "Get ready to launch your real estate website without..."
+                },
+                "2": {
+                    "Title": "Choose The House You Like",
+                    "Desc": "Get ready to launch your real estate website without..."
+                },
+                "3": {
+                    "Title": "Enquire About This Property",
+                    "Desc": "Get ready to launch your real estate website without..."
+                },
+                "4": {
+                    "Title": "Own Your Home",
+                    "Desc": "Get ready to launch your real estate website without..."
+                }
+            }
+        },
+        "DreamHouse": {
+            "Title": "Get Your Dream House",
+            "Desc": "Altaire Real estate, we will help you to find your dream house, register your interest below and one of our constultans will contact you as soon as possible",
+            "Button": "Register Your Interest"
+        },
+        "Blogs": {
+            "Title": "News & Articles"
+        },
+        "Articles": {
+            "Title": "News & Articles"
+        },
+        "Partners": {
+            "Title": "Trusted by the world's best"
+        }
+    },
+    "Menu": {
+        "Home": "Home",
+        "Buy": "Buy",
+        "Off-Plan": "Off-Plan",
+        "Secondary": "Secondary",
+        "Rent": "Rent",
+        "Media": "Media",
+        "Partnership": "Partnership",
+        "More": "More",
+        "Blog": "Blog",
+        "News": "News",
+        "About Us": "About Us",
+        "Our Team": "Our Team",
+        "Contact Us": "Contact Us",
+        "About Company": "About Company",
+        "FAQ": "FAQ"
+    },
+    "Shared": {
+        "Home": "Home",
+        "Of": "of",
+        "Results": "results",
+        "Sort": "Sort by",
+        "Newest": "Newest",
+        "PriceLow": "Price low",
+        "PriceHigh": "Price High",
+        "Filter": "More Filter",
+        "MinPrice": "Min Price",
+        "MaxPrice": "Max Price",
+        "MinBeds": "Min Beds",
+        "MaxBeds": "Max Beds",
+        "Type": "Type",
+        "Sqft": "Square Feet",
+        "ResetFilter": "Reset Filters",
+        "Search": "Search",
+        "Bedroom": "Bedroom",
+        "Bathroom": "Bathroom",
+        "Handover": "Handover",
+        "Area": "Area",
+        "PaymentPlan": "Payment Plan",
+        "ScheduleTour": "Schedule a tour",
+        "Choose": "Choose your preffered day",
+        "InPerson": "In Person",
+        "VideoChat": "Video Chat",
+        "Time": "Time",
+        "FormTime": "What is the best time to call you?",
+        "FormCommunication": "What is the best way to communicate you?",
+        "Communication": "Communication Method",
+        "Name": "Name",
+        "Phone": "Phone",
+        "Email": "Email",
+        "EnterMessage": "Enter Your Messages",
+        "SubmitTour": "Submit a Tour Request",
+        "Captcha": "Solve this Equation: "
+    },
+    "Footer": {
+        "Follow": "Follow us on social media",
+        "Subscribe": {
+            "Title": "Keep Yourself Up to Date",
+            "Placeholder": "Your Email",
+            "Button": "Subscribe"
+        },
+        "Items": {
+            "Terms": "Terms of Use",
+            "Policy": "Privacy Policy",
+            "Contact": "Contact Us",
+            "FAQ": "FAQ"
+        },
+        "Contact": {
+            "Customer": "Total Free Customer Care",
+            "Support": "Need Live Support?"
+        },
+        "Copyright": {
+            "Privacy": "Privacy",
+            "Terms": "Terms",
+            "Sitemap": "Sitemap",
+            "Rights": "All rights reserved"
+        },
+        "QuickLink": "Quick Links"
+    },
+    "Blogs": {
+        "Title": "Blogs"
+    },
+    "Articles": {
+        "Title": "News & Articles"
+    },
+    "FAQ": {
+        "Title": "Frequently Asked Questions",
+        "Tab": "FAQ",
+        "Subtitle": "Question About Selling",
+        "Items": {
+            "1": {
+                "Title": "Can a home depreciate in value?",
+                "Desc": "It doesn't matter how organized you are — a surplus of toys will always ensure your house"
+            },
+            "2": {
+                "Title": "Is an older home as good a value as a new home?",
+                "Desc": "It doesn't matter how organized you are — a surplus of toys will always ensure your house"
+            },
+            "3": {
+                "Title": "What is a broker?",
+                "Desc": "It doesn't matter how organized you are — a surplus of toys will always ensure your house"
+            },
+            "4": {
+                "Title": "Can I pay my own taxes and insurance?",
+                "Desc": "It doesn't matter how organized you are — a surplus of toys will always ensure your house"
+            }
+        }
+    },
+    "Popup": {
+        "1": {
+            "Title": "What are you looking for?",
+            "Buy Property": "Buy Property",
+            "Rent Property": "Rent Property",
+            "Sell Property": "Sell Property",
+            "List Your Property": "List Your Property",
+            "Property Management": "Property Management",
+            "Other": "Other"
+        },
+        "2": {
+            "Title": "What type of property in Dubai do you require?",
+            "Apartment": "Apartment",
+            "Penthouse": "Penthouse",
+            "Villa / Townhouse": "Villa / Townhouse",
+            "Commercial / Office": "Commerical / Office",
+            "Plot": "Plot",
+            "Other": "Other"
+        },
+        "3": {
+            "Title": "What are you looking for?",
+            "Off-Plan": "Off-Plan",
+            "Ready": "Ready",
+            "Other": "Other..."
+        },
+        "4": {
+            "Title": "Select Your Preferred Area in Dubai",
+            "I don't know yet": "I don't know yet",
+            "Downtown Dubai": "Downtown Dubai",
+            "Emaar Beachfront": "Emaar Beachfront",
+            "Dubai Hills Estate": "Dubai Hills Estate",
+            "Dubai Creek Harbour": "Dubai Creek Harbour",
+            "Palm Jumeirah": "Palm Jumeirah",
+            "Bluewaters Island": "Bluewaters Island",
+            "Business Bay": "Business Bay",
+            "Port De La Mer": "Port De La Mer",
+            "Dubai Marina": "Dubai Marina",
+            "Jumeirah Beach Residences (JBR)": "Jumeirah Beach Residences (JBR)",
+            "Jumeirah Golf Estates": "Jumeirah Golf Estates",
+            "Tilal Al Ghaf": "Tilal Al Ghaf",
+            "Dubailand": "Dubailand",
+            "Damac Hills": "Damac Hills",
+            "Other": "Other"
+        },
+        "5": {
+            "Title": "What's your budget?",
+            "Below AED 1,000,000": "Below AED 1,000,000",
+            "AED 1,000,000 - 2,000,000": "AED 1,000,000 - 2,000,000",
+            "AED 2,000,000 - 5,000,000": "AED 2,000,000 - 5,000,000",
+            "AED 5,000,000 - 10,000,000": "AED 5,000,000 - 10,000,000",
+            "More than AED 10,000,000": "More than AED 10,000,000"
+        },
+        "6": {
+            "Title": "Have questions? Get in touch!",
+            "Full Name": "Full Name",
+            "Email": "Email",
+            "Phone Number": "Phone Number",
+            "Submit": "Submit"
+        },
+        "Next": "Next",
+        "Done": "Done"
+    },
+    "ContactUs": {
+        "Title": "We'd love to hear\nfrom you.",
+        "Desc": "We are here to answer any question you may have. As a partner of corporates, realton has more than 9,000 offices of all sizes and all potential of session.",
+        "FormTitle": "Have questions? Get in touch!",
+        "Name": "Full Name",
+        "NamePlaceholder": "Your Full Name",
+        "Email": "Email",
+        "EmailPlaceholder": "Email",
+        "Phone": "Phone Number",
+        "PhonePlaceholder": "Phone",
+        "Message": "Message",
+        "TextAreaPlaceholder": "There are many variations of passages",
+        "Button": "Submit",
+        "Visit": "Visit Our Office",
+        "Items": {
+            "1": {
+                "Title": "Almaty",
+                "Location": "Kapparova 400, office 5, 2nd floor, Medeu district, Almaty.",
+                "Label": "Open Google Map"
+            },
+            "2": {
+                "Title": "Dubai",
+                "Location": "Business Bay, Bayswater Tower, Office 1401, Dubai, United Arab Emirates",
+                "Label": "Open Google Map"
+            }
+        }
+    },
+    "LP": {
+        "aeternitas": {
+            "Hero": {
+                "Title": "THE WORLD'S TALLEST BRANDED RESIDENTIAL CLOCK TOWER",
+                "Download": "Download Brochure"
+            },
+            "Overview": {
+                "Label": "The Building Overview",
+                "Title": "Modern & premium apartments",
+                "Desc": "Interior of volumes, space, air, proportion, with certain light and mood. These interiors are meant to last forever. you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+                "PaymentPlan": "Payment Plan 40/60",
+                "Handover": "Handover 2027 Q2",
+                "StartingPrice": "Starting Price 1.6M AED",
+                "Button": "More Detail",
+                "AreaPlaceholder": "Square Areas",
+                "ParkingPlaceholder": "Car Parkings",
+                "ApartmentPlaceholder": "Apartments",
+                "BedroomPlaceholder": "Bedrooms",
+                "Area": "8800",
+                "Parking": "680",
+                "Apartment": "309",
+                "Bedroom": "280"
+            },
+            "Features": {
+                "Label": "Main features",
+                "Title": "Our main property features",
+                "Desc": "GOLDEN VISA ONE OF THE WORLD'S SAFEST CITIES STRATEGIC LOCATION STATE-OF-THE-ART EDUCATION & HEALTHCARE INVESTOR-FRIENDLY POLICIES QUALITY OF LIFE WORLD-CLASS INFRASTRUCTURE TAX-FREE ECONOMY THE CLEANEST CITY IN THE WORLD*MOST DESIRABLE GLOBAL DESTINATION FOR EXPATS",
+                "1": {
+                    "Title": "The London Gym",
+                    "Icon": "icon-weights"
+                },
+                "2": {
+                    "Title": "The London Spa",
+                    "Icon": "icon-spa"
+                },
+                "3": {
+                    "Title": "Swimming Pool",
+                    "Icon": "icon-swimming-pool"
+                },
+                "4": {
+                    "Title": "Kid's Play Area",
+                    "Icon": "icon-playground"
+                }
+            },
+            "FloorPlan": {
+                "Label": "Villa plans",
+                "Title": "Apartment plans",
+                "Desc": "Taking life to new heights, one record- breaking luxury at a time. Aeternitas is an architectural marvel arising out of this unique collaboration. The world’s most prestigious watchmakers concoct a lifestyle worthy of a chosen few - an extraordinary experience like no other.",
+                "Available": "Available",
+                "Unavailable": "Unavailable",
+                "Sqft": "Sq. ft"
+            },
+            "Contact": {
+                "Label": "contact now",
+                "Title": "Get in touch with us",
+                "Question1": "Have any question?",
+                "Answer1": "Free",
+                "Question2": "Write email",
+                "NamePlaceholder": "Your name",
+                "EmailPlaceholder": "Email address",
+                "PhonePlaceholder": "Phone",
+                "MessagePlaceholder": "Write message",
+                "Button": "Submit a Request",
+                "Register": "Register Your Interest"
+            }
+        },
+        "azizi-venice": {
+            "Hero": {
+                "Title": "Azizi Venice",
+                "Download": "Download Brochure"
+            },
+            "Overview": {
+                "Label": "The Project Overview",
+                "Title": "AN OASIS OF DREAMS",
+                "Desc": "Dive into a world of unparalleled water-inspired living, unlike anything you've ever experienced, at Dubai's forthcoming legacy - a truly unparalleled luxury Crystal Lagoon community. Brace yourself to embark on a journey where opulence knows no boundaries, as you step into a haven of lavishness that stretches the limits of imagination. This is not just another destination it's an uncharted masterpiece, waiting to be discovered.",
+                "PaymentPlan": "Payment Plan 40/60",
+                "Handover": "Handover 2026 Q4",
+                "StartingPrice": "Starting Price 600,000 AED",
+                "Button": "More Detail",
+                "AreaPlaceholder": "Square Meters",
+                "ParkingPlaceholder": "Car Parkings",
+                "ApartmentPlaceholder": "Apartments",
+                "BedroomPlaceholder": "Bedrooms",
+                "Area": "136M",
+                "Parking": "680",
+                "Apartment": "15,057",
+                "Bedroom": "280"
+            },
+            "Features": {
+                "Label": "Main features",
+                "Title": "AN OASIS OF DREAMS",
+                "Desc": "Dive into a world of unparalleled water-inspired living, unlike anything you've ever experienced, at Dubai's forthcoming legacy - a truly unparalleled luxury Crystal Lagoon community. Brace yourself to embark on a journey where opulence knows no boundaries, as you step into a haven of lavishness that stretches the limits of imagination. This is not just another destination it's an uncharted masterpiece, waiting to be discovered.",
+                "1": {
+                    "Title": "The London Gym",
+                    "Icon": "icon-weights"
+                },
+                "2": {
+                    "Title": "The London Spa",
+                    "Icon": "icon-spa"
+                },
+                "3": {
+                    "Title": "Swimming Pool",
+                    "Icon": "icon-swimming-pool"
+                },
+                "4": {
+                    "Title": "Kid's Play Area",
+                    "Icon": "icon-playground"
+                }
+            },
+            "FloorPlan": {
+                "Label": "Villa plans",
+                "Title": "Apartment plans",
+                "Desc": "Taking life to new heights, one record- breaking luxury at a time. Aeternitas is an architectural marvel arising out of this unique collaboration. The world’s most prestigious watchmakers concoct a lifestyle worthy of a chosen few - an extraordinary experience like no other.",
+                "Available": "Available",
+                "Unavailable": "Unavailable",
+                "Sqft": "Sq. ft"
+            },
+            "Contact": {
+                "Label": "contact now",
+                "Title": "Get in touch with us",
+                "Question1": "Have any question?",
+                "Answer1": "Free",
+                "Question2": "Write email",
+                "NamePlaceholder": "Your name",
+                "EmailPlaceholder": "Email address",
+                "PhonePlaceholder": "Phone",
+                "MessagePlaceholder": "Write message",
+                "Button": "Submit a Request"
+            }
+        }
+    }
+}

@@ -1,0 +1,396 @@
+{
+    "QuickLink": "快速链接",
+    "OffPlan": {
+        "Single": {
+            "Overview": "概览",
+            "Desc": "物业描述",
+            "FloorPlan": "楼层平面图",
+            "PaymentPlan": "付款计划",
+            "Location": "位置",
+            "Similar": "类似项目",
+            "Video": "视频",
+            "Type": "类型",
+            "Area": "总面积",
+            "Price": "起价",
+            "Amenities": "特色与设施"
+        },
+        "Hero": {
+            "Title": "寻找你的梦想之家",
+            "Placeholder": "搜索购买项目",
+            "Filter": "高级"
+        },
+        "Main": {
+            "Title": "待售住宅",
+            "Breadcrumb": "待售"
+        }
+    },
+    "Secondary": {
+        "Single": {
+            "Overview": "概览",
+            "Desc": "物业描述",
+            "FloorPlan": "楼层平面图",
+            "PaymentPlan": "付款计划",
+            "Location": "位置",
+            "Similar": "类似物业",
+            "Video": "视频",
+            "Type": "类型",
+            "Area": "总面积",
+            "Price": "价格",
+            "Amenities": "特色与设施"
+        },
+        "Hero": {
+            "Title": "寻找你的梦想之家",
+            "Placeholder": "搜索购买项目",
+            "Filter": "高级"
+        },
+        "Main": {
+            "Title": "待售住宅",
+            "Breadcrumb": "待售"
+        }
+    },
+    "Rent": {
+        "Single": {
+            "Overview": "概览",
+            "Desc": "物业描述",
+            "FloorPlan": "楼层平面图",
+            "PaymentPlan": "付款计划",
+            "Location": "位置",
+            "Similar": "类似物业",
+            "Video": "视频",
+            "Type": "类型",
+            "Area": "总面积",
+            "Price": "价格",
+            "Amenities": "特色与设施"
+        },
+        "Hero": {
+            "Title": "寻找你的梦想之家",
+            "Placeholder": "搜索租赁项目",
+            "Filter": "高级"
+        },
+        "Main": {
+            "Title": "待租住宅",
+            "Breadcrumb": "待租"
+        }
+    },
+    "Home": {
+        "Hero": {
+            "Title": "轻松找到\n完美的房产",
+            "Download": "下载手册",
+            "Watch": "观看视频",
+            "SearchProducts": "搜索 {label} 的物业",
+            "Secondary": "次要",
+            "Off-Plan": "预售",
+            "Rent": "租赁"
+        },
+        "Apartments": {
+            "Title": "探索公寓类型",
+            "Properties": "属性"
+        },
+        "Projects": {
+            "Title": "浏览最近的项目",
+            "View All": "查看全部"
+        },
+        "HowItWorks": {
+            "Title": "找到您下一个家的最佳方式",
+            "Subtitle": "选择您的下一个家\n与Altair Real Estate L.L.C",
+            "Button": "预约免费咨询",
+            "Items": {
+                "1": {
+                    "Title": "搜索你的梦想之家",
+                    "Desc": "准备好推出你的房地产网站，无需..."
+                },
+                "2": {
+                    "Title": "选择你喜欢的房子",
+                    "Desc": "准备好推出你的房地产网站，无需..."
+                },
+                "3": {
+                    "Title": "询问有关此物业的信息",
+                    "Desc": "准备好推出你的房地产网站，无需..."
+                },
+                "4": {
+                    "Title": "拥有你的家",
+                    "Desc": "准备好推出你的房地产网站，无需..."
+                }
+            }
+        },
+        "DreamHouse": {
+            "Title": "获得你的梦想之家",
+            "Desc": "在Altair房地产，我们将帮助您找到您的梦想之家。请在下方注册您的兴趣，我们的顾问会尽快与您联系。",
+            "Button": "注册您的兴趣"
+        },
+        "Blogs": {
+            "Title": "新闻与文章"
+        },
+        "Articles": {
+            "Title": "新闻与文章"
+        },
+        "Partners": {
+            "Title": "得到全球最好的信任"
+        }
+    },
+    "Menu": {
+        "Home": "首页",
+        "Buy": "购买",
+        "Off-Plan": "预售",
+        "Secondary": "次要",
+        "Rent": "租赁",
+        "Partnership": "合作",
+        "Media": "媒体",
+        "More": "更多",
+        "Blog": "博客",
+        "News": "新闻",
+        "About Us": "关于我们",
+        "Our Team": "我们的团队",
+        "Contact Us": "联系我们",
+        "About Company": "关于公司",
+        "FAQ": "常见问题解答"
+    },
+    "Shared": {
+        "Home": "首页",
+        "Of": "的",
+        "Results": "结果",
+        "Sort": "排序",
+        "Newest": "最新",
+        "PriceLow": "价格低",
+        "PriceHigh": "价格高",
+        "Filter": "更多筛选",
+        "MinPrice": "最低价格",
+        "MaxPrice": "最高价格",
+        "MinBeds": "最少卧室数",
+        "MaxBeds": "最多卧室数",
+        "Type": "类型",
+        "Sqft": "平方英尺",
+        "ResetFilter": "重置筛选",
+        "Search": "搜索",
+        "Bedroom": "卧室",
+        "Bathroom": "浴室",
+        "Handover": "交付",
+        "Area": "面积",
+        "PaymentPlan": "付款计划",
+        "ScheduleTour": "安排参观",
+        "Choose": "选择您喜欢的日期",
+        "InPerson": "亲自",
+        "VideoChat": "视频聊天",
+        "Time": "时间",
+        "Communication": "沟通方式",
+        "FormTime": "什么时候打电话给你最合适？",
+        "FormCommunication": "最好的沟通方式是什么？",
+        "Name": "名字",
+        "Phone": "电话",
+        "Email": "电子邮件",
+        "EnterMessage": "输入您的消息",
+        "SubmitTour": "提交参观请求",
+        "Captcha": "解决这个方程："
+    },
+    "Footer": {
+        "Follow": "在社交媒体上关注我们",
+        "Subscribe": {
+            "Title": "保持更新",
+            "Placeholder": "您的电子邮件",
+            "Button": "订阅"
+        },
+        "Items": {
+            "Terms": "使用条款",
+            "Policy": "隐私政策",
+            "Contact": "联系我们",
+            "FAQ": "常见问题解答"
+        },
+        "Contact": {
+            "Customer": "全免费客户服务",
+            "Support": "需要实时支持？"
+        },
+        "Copyright": {
+            "Privacy": "隐私",
+            "Terms": "使用条款",
+            "Sitemap": "网站地图",
+            "Rights": "版权所有"
+        },
+        "QuickLink": "快速链接"
+    },
+    "Blogs": {
+        "Title": "博客"
+    },
+    "Articles": {
+        "Title": "新闻与文章"
+    },
+    "FAQ": {
+        "Title": "常见问题解答",
+        "Tab": "FAQ",
+        "Subtitle": "关于销售的问题",
+        "Items": {
+            "1": {
+                "Title": "房屋的价值会贬值吗？",
+                "Desc": "不管你有多么有组织，玩具的过剩总会确保你的房子"
+            },
+            "2": {
+                "Title": "老房子和新房子一样好吗？",
+                "Desc": "不管你有多么有组织，玩具的过剩总会确保你的房子"
+            },
+            "3": {
+                "Title": "什么是经纪人？",
+                "Desc": "不管你有多么有组织，玩具的过剩总会确保你的房子"
+            },
+            "4": {
+                "Title": "我可以支付自己的税金和保险吗？",
+                "Desc": "不管你有多么有组织，玩具的过剩总会确保你的房子"
+            }
+        }
+    },
+
+    "Popup": {
+        "1": {
+            "Title": "您在寻找什么？",
+            "Buy Property": "购买房产",
+            "Rent Property": "租赁房产",
+            "Sell Property": "出售房产",
+            "List Your Property": "列出您的房产",
+            "Property Management": "物业管理",
+            "Other": "其他"
+        },
+        "2": {
+            "Title": "您需要迪拜的哪种类型的房产？",
+            "Apartment": "公寓",
+            "Penthouse": "顶层公寓",
+            "Villa / Townhouse": "别墅 / 联排别墅",
+            "Commercial / Office": "商业 / 办公室",
+            "Plot": "地块",
+            "Other": "其他"
+        },
+        "3": {
+            "Title": "您在寻找什么？",
+            "Off-Plan": "预售",
+            "Ready": "现房",
+            "Other": "其他..."
+        },
+        "4": {
+            "Title": "选择您在迪拜的首选区域",
+            "I don't know yet": "我还不知道",
+            "Downtown Dubai": "迪拜市中心",
+            "Emaar Beachfront": "艾马尔海滨",
+            "Dubai Hills Estate": "迪拜山庄",
+            "Dubai Creek Harbour": "迪拜湾港",
+            "Palm Jumeirah": "人工岛棕榈岛",
+            "Bluewaters Island": "蓝水岛",
+            "Business Bay": "商务湾",
+            "Port De La Mer": "蓝海港",
+            "Dubai Marina": "迪拜码头",
+            "Jumeirah Beach Residences (JBR)": "茱莉亚海滩住宅",
+            "Jumeirah Golf Estates": "朱美拉高尔夫庄园",
+            "Tilal Al Ghaf": "蒂拉勒尔加夫",
+            "Dubailand": "迪拜乐园",
+            "Damac Hills": "达曼克山",
+            "Other": "其他"
+        },
+        "5": {
+            "Title": "您的预算是多少？",
+            "Below AED 1,000,000": "低于100万迪拉姆",
+            "AED 1,000,000 - 2,000,000": "100万 - 200万迪拉姆",
+            "AED 2,000,000 - 5,000,000": "200万 - 500万迪拉姆",
+            "AED 5,000,000 - 10,000,000": "500万 - 1000万迪拉姆",
+            "More than AED 10,000,000": "超过1000万迪拉姆"
+        },
+        "6": {
+            "Title": "有问题？请联系我们！",
+            "Full Name": "全名",
+            "Email": "电子邮件",
+            "Phone Number": "电话号码",
+            "Submit": "提交"
+        },
+        "Next": "下一个",
+        "Done": "完成"
+    },
+    "ContactUs": {
+        "Title": "我们很乐意收到您的来信。",
+        "Desc": "我们在这里回答您可能有的任何问题。作为企业客户的合作伙伴，Realton拥有超过9,000个各种规模和潜力的办事处。",
+        "FormTitle": "有问题吗？请联系我们！",
+        "Name": "全名",
+        "NamePlaceholder": "您的全名",
+        "Email": "电子邮件",
+        "EmailPlaceholder": "电子邮件",
+        "Phone": "电话号码",
+        "PhonePlaceholder": "电话",
+        "Message": "消息",
+        "TextAreaPlaceholder": "有很多文字段落的变化",
+        "Button": "提交",
+        "Visit": "访问我们的办公室",
+        "Items": {
+            "1": {
+                "Title": "阿拉木图",
+                "Location": "卡帕洛瓦400号，5号办公室，第2层，梅迪欧区，阿拉木图。",
+                "Label": "打开Google地图"
+            },
+            "2": {
+                "Title": "迪拜",
+                "Location": "比兹尼斯湾，贝斯沃特，1401号办公室，迪拜，阿拉伯联合酋长国",
+                "Label": "打开Google地图"
+            }
+        }
+    },
+    "LP": {
+        "aeternitas": {
+            "Hero": {
+                "Title": "全球最高的品牌住宅钟楼",
+                "Download": "下载手册"
+            },
+            "Overview": {
+                "Label": "建筑概况",
+                "Title": "现代高档公寓",
+                "Desc": "体积、空间、空气、比例，以及特定的光线和情绪的室内设计。这些室内设计旨在永存。您需要确保在文本中间没有任何尴尬的隐藏内容。",
+                "PaymentPlan": "付款计划 40/60",
+                "Handover": "交房时间 2027年第二季度",
+                "StartingPrice": "起价 160万阿联酋迪拉姆",
+                "Button": "更多详情",
+                "AreaPlaceholder": "平方面积",
+                "ParkingPlaceholder": "停车位",
+                "ApartmentPlaceholder": "公寓",
+                "BedroomPlaceholder": "卧室",
+                "Area": "8800",
+                "Parking": "680",
+                "Apartment": "309",
+                "Bedroom": "280"
+            },
+            "Features": {
+                "Label": "主要特点",
+                "Title": "我们的主要物业特点",
+                "Desc": "黄金签证 世界上最安全的城市 战略位置 现代化教育与医疗 投资者友好政策 生活质量 世界级基础设施 免税经济 世界上最干净的城市*最受欢迎的全球外籍人士目的地",
+                "1": {
+                    "Title": "伦敦健身房",
+                    "Icon": "icon-weights"
+                },
+                "2": {
+                    "Title": "伦敦水疗中心",
+                    "Icon": "icon-spa"
+                },
+                "3": {
+                    "Title": "游泳池",
+                    "Icon": "icon-swimming-pool"
+                },
+                "4": {
+                    "Title": "儿童游乐区",
+                    "Icon": "icon-playground"
+                }
+            },
+            "FloorPlan": {
+                "Label": "别墅平面图",
+                "Title": "公寓平面图",
+                "Desc": "将生活推向新的高度，一次创纪录的豪华体验。Aeternitas是一座建筑奇迹，是独特合作的产物。世界上最负盛名的制表师构思出一种只为少数精英设计的生活方式 - 一种无与伦比的体验。",
+                "Available": "可用",
+                "Unavailable": "不可用",
+                "Sqft": "平方英尺"
+            },
+            "Contact": {
+                "Label": "立即联系",
+                "Title": "与我们取得联系",
+                "Question1": "有任何问题吗？",
+                "Answer1": "免费",
+                "Question2": "写电子邮件",
+                "NamePlaceholder": "您的姓名",
+                "EmailPlaceholder": "电子邮件地址",
+                "PhonePlaceholder": "电话",
+                "MessagePlaceholder": "编写留言",
+                "Button": "提交请求",
+                "Register": "注册您的兴趣"
+            }
+        }
+    }
+}

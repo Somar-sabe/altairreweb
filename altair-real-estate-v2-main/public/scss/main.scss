@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1440px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+@import 'bootstrap/dist/css/bootstrap.css';
+@import './swiper-custom';
+@import './style';
+@import './custom-homez';
+@import './customTwo.scss';
