@@ -32,7 +32,7 @@ export default function PropertyFilteringBannerTwo() {
     const selectedPage = parseInt(searchParams.get('Page') ?? '1')
 
     const updateSearchParams = (key: string, value: string) => {
-        const newParams = new URLSearchParams(searchParams)
+        const newParams = new URLSearchParams(searchParams.toString())
         newParams.set(key, value)
         router.replace(`${pathname}?${newParams?.toString()}`, {
             scroll: false,

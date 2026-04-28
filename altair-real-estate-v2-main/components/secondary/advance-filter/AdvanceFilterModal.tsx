@@ -1,10 +1,11 @@
 'use client'
+
 import Select from 'react-select'
 import { useAppSelector } from '@/store/store'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import InputRange, { Range } from 'react-input-range'
-import 'react-input-range/lib/css/index.css'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 import { useTranslations } from 'next-intl'
 import { usePathname } from '@/navigation'
 
@@ -19,339 +20,215 @@ const AdvanceFilterModal = () => {
     ]
 
     const { types } = useAppSelector((state) => state.MasterReducer)
+
     const searchParams = useSearchParams()
     const router = useRouter()
     const path = usePathname()
 
-    const [currParams, setCurrParams] = useState<URLSearchParams>(searchParams)
+    // ✅ FIX: always clone ReadonlyURLSearchParams
+    const [currParams, setCurrParams] = useState<URLSearchParams>(
+        () => new URLSearchParams(searchParams.toString())
+    )
 
     useEffect(() => {
-        setCurrParams(searchParams)
+        setCurrParams(new URLSearchParams(searchParams.toString()))
     }, [searchParams])
 
-    const selectedCategory = currParams?.get('CategoryId') ?? '0'
-    const selectedMinBeds = currParams?.get('MinBeds') ?? '0'
-    const selectedMaxBeds = currParams?.get('MaxBeds') ?? '0'
-    const selectedMinArea = currParams?.get('MinArea') ?? '0'
-    const selectedMaxArea = currParams?.get('MaxArea') ?? '0'
-    const selectedMinPrice = currParams.get('MinPrice') ?? '0'
-    const selectedMaxPrice = currParams.get('MaxPrice') ?? '0'
+    const selectedCategory = currParams.get('CategoryId') ?? '0'
+    const selectedMinBeds = currParams.get('MinBeds') ?? '0'
+    const selectedMaxBeds = currParams.get('MaxBeds') ?? '0'
+    const selectedMinArea = currParams.get('MinArea') ?? '0'
+    const selectedMaxArea = currParams.get('MaxArea') ?? '0'
+
+    const selectedMinPrice = parseInt(currParams.get('MinPrice') ?? '0')
+    const selectedMaxPrice = parseInt(currParams.get('MaxPrice') ?? '100000')
+
+    const [priceRange, setPriceRange] = useState<[number, number]>([
+        selectedMinPrice,
+        selectedMaxPrice,
+    ])
 
     const filteredTypes = types?.map((item: any) => ({
         value: item?.Id,
         label: item?.Name,
     }))
 
+    // ✅ FIX: safe param update
     const updateSearchParams = (key: string, value: string) => {
-        const newParams = new URLSearchParams(currParams)
+        const newParams = new URLSearchParams(currParams.toString())
         newParams.set(key, value)
         setCurrParams(newParams)
     }
 
+    // ✅ FIX: slider update
+    const handlePriceChange = (val: number | number[]) => {
+        if (!Array.isArray(val)) return
+
+        const [min, max] = val
+
+        setPriceRange([min, max])
+
+        const newParams = new URLSearchParams(currParams.toString())
+        newParams.set('MinPrice', String(min))
+        newParams.set('MaxPrice', String(max))
+        setCurrParams(newParams)
+    }
+
     const onSearch = () => {
-        router.replace(`${path}?${currParams?.toString()}`)
+        router.replace(`${path}?${currParams.toString()}`)
     }
 
     const resetFilters = () => {
         router.replace(`${path}`)
     }
 
-    const t = useTranslations('Shared')
-
     const customStyles = {
-        option: (styles: any, { isFocused, isSelected, isHovered }: any) => {
-            return {
-                ...styles,
-                color: 'black',
-                backgroundColor: isSelected
-                    ? 'var(--theme-default2)'
-                    : isHovered
-                    ? 'var(--theme-default2)'
-                    : isFocused
+        option: (styles: any, { isFocused, isSelected }: any) => ({
+            ...styles,
+            color: 'black',
+            backgroundColor:
+                isSelected || isFocused
                     ? 'var(--theme-default2)'
                     : undefined,
-            }
-        },
+        }),
     }
+
+    const t = useTranslations('Shared')
 
     return (
         <div className="modal-dialog modal-dialog-centered modal-lg">
             <div className="modal-content overflow-y-auto h-full max-h-screen">
+
+                {/* HEADER */}
                 <div className="modal-header pl30 pr30">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                        {t('Filter')}
-                    </h5>
-                    <button
-                        type="button"
-                        className="btn-close m-0"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    />
+                    <h5 className="modal-title">{t('Filter')}</h5>
+                    <button type="button" className="btn-close m-0" data-bs-dismiss="modal" />
                 </div>
-                {/* End modal-header */}
 
-                <div className="modal-body pb-0 ">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <div className="widget-wrapper">
-                                <h6 className="list-title">{t('MinPrice')}</h6>
-                                <div className="form-style2 input-group">
-                                    <input
-                                        type="number"
-                                        className="form-control filterInput"
-                                        value={selectedMinPrice}
-                                        onChange={(e: any) =>
-                                            // filterFunctions?.handlesquirefeet(
-                                            //     [
-                                            //         e.target.value,
-                                            //         (
-                                            //             document.getElementById(
-                                            //                 'maxFeet3'
-                                            //             ) as any
-                                            //         ).value / 1,
-                                            //     ]
-                                            // )
-                                            updateSearchParams(
-                                                'MinPrice',
-                                                e?.currentTarget?.value
-                                            )
-                                        }
-                                        placeholder="Min."
-                                        id="minFeet3"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                {/* BODY */}
+                <div className="modal-body pb-0">
 
-                        <div className="col-sm-6">
-                            <div className="widget-wrapper">
-                                <h6 className="list-title">{t('MaxPrice')}</h6>
-                                <div className="form-style2 input-group">
-                                    <input
-                                        type="number"
-                                        className="form-control filterInput"
-                                        value={selectedMaxPrice}
-                                        onChange={(e: any) =>
-                                            // filterFunctions?.handlesquirefeet(
-                                            //     [
-                                            //         e.target.value,
-                                            //         (
-                                            //             document.getElementById(
-                                            //                 'maxFeet3'
-                                            //             ) as any
-                                            //         ).value / 1,
-                                            //     ]
-                                            // )
-                                            updateSearchParams(
-                                                'MaxPrice',
-                                                e?.currentTarget?.value
-                                            )
-                                        }
-                                        placeholder="Max."
-                                        id="minFeet3"
-                                    />
-                                </div>
-                            </div>
+                    {/* PRICE SLIDER */}
+                    <div className="widget-wrapper mb-4">
+                        <h6 className="list-title">{t('Price')}</h6>
+
+                        <Slider
+                            range
+                            min={0}
+                            max={100000}
+                            value={priceRange}
+                            onChange={handlePriceChange}
+                        />
+
+                        <div className="d-flex align-items-center mt-2">
+                            <span>${priceRange[0]}</span>
+                            <i className="fa-sharp fa-solid fa-minus mx-2 dark-color icon" />
+                            <span>${priceRange[1]}</span>
                         </div>
                     </div>
-                    {/* End .row */}
 
-                    {/* End .col-6 */}
-
-                    {/* <div className="col-sm-6">
-                            <div className="widget-wrapper">
-                                <h6 className="list-title">Property ID</h6>
-                                <div className="form-style2">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="RT04949213"
-                                    />
-                                </div>
-                            </div>
-                        </div> */}
-                    {/* End .col-6 */}
-
-                    {/* End .row */}
-
+                    {/* TYPE */}
                     <div className="row">
                         <div className="col-sm-6">
                             <div className="widget-wrapper">
                                 <h6 className="list-title">{t('Type')}</h6>
-                                <div className="form-style2 input-group">
-                                    <Select
-                                        name="colors"
-                                        options={filteredTypes}
-                                        value={types?.find(
-                                            (item) =>
-                                                item?.Id == selectedCategory
-                                        )}
-                                        styles={customStyles}
-                                        onChange={(e: any) =>
-                                            // filterFunctions?.setPropertyTypes([
-                                            //     e.value,
-                                            // ])
-                                            updateSearchParams(
-                                                'categoryId',
-                                                e?.value
-                                            )
-                                        }
-                                        className="select-custom"
-                                        classNamePrefix="select"
-                                        required
-                                    />
-                                </div>
+
+                                <Select
+                                    options={filteredTypes}
+                                    value={filteredTypes?.find(
+                                        (item) => item.value == selectedCategory
+                                    )}
+                                    styles={customStyles}
+                                    onChange={(e: any) =>
+                                        updateSearchParams('CategoryId', e?.value)
+                                    }
+                                />
                             </div>
                         </div>
+
+                        {/* BEDS */}
                         <div className="col-sm-6">
                             <div className="widget-wrapper">
                                 <h6 className="list-title">{t('MinBeds')}</h6>
-                                <div className="form-style2 input-group">
-                                    <Select
-                                        value={beds?.find(
-                                            (item) =>
-                                                item?.value == selectedMinBeds
-                                        )}
-                                        name="colors"
-                                        options={beds}
-                                        styles={customStyles}
-                                        onChange={(e: any) =>
-                                            // filterFunctions?.setPropertyTypes([
-                                            //     e.value,
-                                            // ])
-                                            updateSearchParams(
-                                                'MinBeds',
-                                                e?.value
-                                            )
-                                        }
-                                        className="select-custom"
-                                        classNamePrefix="select"
-                                        required
-                                    />
-                                </div>
+
+                                <Select
+                                    options={beds}
+                                    value={beds.find(
+                                        (item) => item.value == selectedMinBeds
+                                    )}
+                                    onChange={(e: any) =>
+                                        updateSearchParams('MinBeds', e?.value)
+                                    }
+                                />
                             </div>
                         </div>
-                        {/* End .col-md-6 */}
 
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 mt-3">
                             <div className="widget-wrapper">
                                 <h6 className="list-title">{t('MaxBeds')}</h6>
-                                <div className="form-style2 input-group">
-                                    <Select
-                                        value={beds?.find(
-                                            (item) =>
-                                                item?.value == selectedMaxBeds
-                                        )}
-                                        name="colors"
-                                        options={beds}
-                                        styles={customStyles}
-                                        onChange={(e: any) =>
-                                            // filterFunctions?.setPropertyTypes([
-                                            //     e.value,
-                                            // ])
+
+                                <Select
+                                    options={beds}
+                                    value={beds.find(
+                                        (item) => item.value == selectedMaxBeds
+                                    )}
+                                    onChange={(e: any) =>
+                                        updateSearchParams('MaxBeds', e?.value)
+                                    }
+                                />
+                            </div>
+                        </div>
+
+                        {/* AREA */}
+                        <div className="col-sm-6 mt-3">
+                            <div className="widget-wrapper">
+                                <h6 className="list-title">{t('Sqft')}</h6>
+
+                                <div className="d-flex align-items-center gap-2">
+                                    <input
+                                        type="number"
+                                        value={selectedMinArea}
+                                        onChange={(e) =>
                                             updateSearchParams(
-                                                'MaxBeds',
-                                                e?.value
+                                                'MinArea',
+                                                e.target.value
                                             )
                                         }
-                                        className="select-custom"
-                                        classNamePrefix="select"
-                                        required
+                                        className="form-control"
+                                    />
+
+                                    <span>-</span>
+
+                                    <input
+                                        type="number"
+                                        value={selectedMaxArea}
+                                        onChange={(e) =>
+                                            updateSearchParams(
+                                                'MaxArea',
+                                                e.target.value
+                                            )
+                                        }
+                                        className="form-control"
                                     />
                                 </div>
                             </div>
                         </div>
-
-                        <div className="col-sm-6">
-                            <div className="widget-wrapper">
-                                <h6 className="list-title">{t('Sqft')}</h6>
-                                <div className="space-area">
-                                    <div className="d-flex align-items-center justify-content-between">
-                                        <div className="form-style1">
-                                            <input
-                                                type="number"
-                                                className="form-control filterInput"
-                                                value={selectedMinArea}
-                                                onChange={(e: any) =>
-                                                    // filterFunctions?.handlesquirefeet(
-                                                    //     [
-                                                    //         e.target.value,
-                                                    //         (
-                                                    //             document.getElementById(
-                                                    //                 'maxFeet3'
-                                                    //             ) as any
-                                                    //         ).value / 1,
-                                                    //     ]
-                                                    // )
-                                                    updateSearchParams(
-                                                        'MinArea',
-                                                        e?.currentTarget?.value
-                                                    )
-                                                }
-                                                placeholder="Min."
-                                                id="minFeet3"
-                                            />
-                                        </div>
-                                        <span className="dark-color">-</span>
-                                        <div className="form-style1">
-                                            <input
-                                                type="number"
-                                                className="form-control filterInput"
-                                                placeholder="Max"
-                                                id="maxFeet3"
-                                                value={selectedMaxArea}
-                                                onChange={(e) =>
-                                                    updateSearchParams(
-                                                        'MaxArea',
-                                                        e?.currentTarget?.value
-                                                    )
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* End .col-md-6 */}
                     </div>
-                    {/* End .row */}
 
-                    <div className="row">
-                        {/* End .col-md-6 */}
-
-                        {/* End .col-md-6 */}
-                    </div>
-                    {/* End .row */}
-
-                    {/* <div className="row">
-                        <div className="col-lg-12">
-                            <div className="widget-wrapper mb0">
-                                <h6 className="list-title mb10">Amenities</h6>
-                            </div>
-                        </div>
-                        <Amenities />
-                    </div> */}
                 </div>
-                {/* End modal body */}
 
+                {/* FOOTER */}
                 <div className="modal-footer justify-content-between">
                     <button className="reset-button" onClick={resetFilters}>
-                        <span className="flaticon-turn-back" />
                         <u>{t('ResetFilter')}</u>
                     </button>
-                    <div className="btn-area">
-                        <button
-                            type="submit"
-                            className="ud-btn btn-thm"
-                            onClick={onSearch}
-                        >
-                            <span className="flaticon-search align-text-top pe-[10px]" />
-                            {t('Search')}
-                        </button>
-                    </div>
+
+                    <button className="ud-btn btn-thm" onClick={onSearch}>
+                        <span className="flaticon-search align-text-top pe-[10px]" />
+                        {t('Search')}
+                    </button>
                 </div>
-                {/* End modal-footer */}
+
             </div>
         </div>
     )

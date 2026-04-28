@@ -15,7 +15,7 @@ const TopFilterBar = ({ count, page, totalItems }: Props) => {
     const searchParams = useSearchParams()
     const path = usePathname()
     const updateSearchParams = (data: { key: string; value: string }[]) => {
-        const currParams = new URLSearchParams(searchParams)
+        const currParams = new URLSearchParams(searchParams.toString())
         data?.forEach(({ key, value }) => {
             currParams.set(key, value)
         })

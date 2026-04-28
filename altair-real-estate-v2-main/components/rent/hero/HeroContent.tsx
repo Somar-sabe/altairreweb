@@ -10,7 +10,7 @@ const HeroContent = () => {
     const searchParams = useSearchParams()
 
     const onSearch = (Search: string) => {
-        const newParams = new URLSearchParams(searchParams)
+        const newParams = new URLSearchParams(searchParams.toString())
         newParams.set('Search', Search)
         router.replace(`${pathname}?${newParams.toString()}`)
     }

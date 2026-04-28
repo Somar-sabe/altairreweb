@@ -17,7 +17,7 @@ const Bedroom = () => {
     const path = usePathname()
 
     const updateSearchParams = (key: string, value: string) => {
-        const currParams = new URLSearchParams(searchParams)
+        const currParams = new URLSearchParams(searchParams.toString())
         currParams.set(key, value)
         router.replace(`${path}?${currParams?.toString()}`)
     }

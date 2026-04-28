@@ -35,7 +35,7 @@ export default function PropertyFilteringBannerTwo() {
     const t = useTranslations('Secondary.Main')
 
     const updateSearchParams = (key: string, value: string) => {
-        const newParams = new URLSearchParams(searchParams)
+        const newParams = new URLSearchParams(searchParams.toString())
         newParams.set(key, value)
         router.replace(`${pathname}?${newParams?.toString()}`)
     }

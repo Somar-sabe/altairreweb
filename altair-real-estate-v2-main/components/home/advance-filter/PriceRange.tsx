@@ -1,33 +1,42 @@
 'use client'
+
 import React, { useState } from 'react'
-import InputRange from 'react-input-range'
-import 'react-input-range/lib/css/index.css'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
 const PriceRange = () => {
-    const [price, setPrice] = useState({ value: { min: 20, max: 70987 } })
+    // ✅ use number[] instead of tuple
+    const [price, setPrice] = useState<number[]>([20, 70987])
 
-    // price range handler
-    const handleOnChange = (value: any) => {
-        setPrice({ value })
+    // handler
+    const handleOnChange = (value: number | number[]) => {
+        if (!Array.isArray(value)) return
+
+        setPrice(value)
     }
 
     return (
-        <>
-            <div className="range-wrapper">
-                <InputRange
-                    formatLabel={() => ``}
-                    maxValue={100000}
-                    minValue={0}
-                    value={price.value}
-                    onChange={(value: any) => handleOnChange(value)}
-                />
-                <div className="d-flex align-items-center">
-                    <span id="slider-range-value1">${price.value.min}</span>
-                    <i className="fa-sharp fa-solid fa-minus mx-2 dark-color icon" />
-                    <span id="slider-range-value2">${price.value.max}</span>
-                </div>
+        <div className="range-wrapper">
+
+            {/* Slider */}
+            <Slider
+                range
+                min={0}
+                max={100000}
+                value={price}
+                onChange={handleOnChange}
+            />
+
+            {/* Labels */}
+            <div className="d-flex align-items-center mt-3">
+                <span>${price[0]}</span>
+
+                <i className="fa-sharp fa-solid fa-minus mx-2 dark-color icon" />
+
+                <span>${price[1]}</span>
             </div>
-        </>
+
+        </div>
     )
 }
 
