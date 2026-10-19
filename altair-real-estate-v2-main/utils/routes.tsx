@@ -63,10 +63,16 @@ export const getArticles = async (
     return emptyList
 }
 
-export const getArticlesById = async (id: number, lang = 'en') => {
-    return null
+export const getArticlesById = async (
+    id: number,
+    lang = 'en'
+): Promise<any> => {
+    return {
+        Id: id,
+        Title: '',
+        Sections: [],
+    }
 }
-
 export const postSubscribe = async (params: { [key: string]: any }) => {
     return {
         success: false,
