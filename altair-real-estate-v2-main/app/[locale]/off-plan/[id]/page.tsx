@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 import { getProjectById } from '@/utils/routes'
@@ -10,29 +11,50 @@ const SingleProperty = dynamic(() => import('@/components/off-plan/single'))
 
 export const revalidate = 30 * 60
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: { id: string }
+}): Promise<Metadata> {
     const { id } = params
     const locale = await getLocale()
-    const data = await getProjectById(id, locale)
+
+    const data: any = await getProjectById(Number(id), locale)
+
+    const title = data?.Name || 'Off-Plan Property'
+    const description = data?.Description || ''
+
     return {
-        title: data?.Name,
-        description: data?.Description,
-        keywords: [data?.Name, data?.Area?.Name, data?.City?.Name],
+        title,
+        description,
+        keywords: [
+            title,
+            data?.Area?.Name || '',
+            data?.City?.Name || '',
+        ].filter(Boolean),
         openGraph: {
-            title: data?.Name,
-            description: data?.Description,
-            images: data?.Images?.map((item: any) => item?.FullPath ?? ''),
+            title,
+            description,
+            images: (data?.Images || [])
+                .map((item: any) => item?.FullPath)
+                .filter(Boolean),
         },
     }
 }
 
-const Page = async (props: any) => {
-    const { id } = props?.params
+const Page = async ({
+    params,
+}: {
+    params: { id: string }
+}) => {
+    const { id } = params
     const locale = await getLocale()
-    const data = await getProjectById(id, locale)
-    if (!data?.Id) redirect('/off-plan')
 
-    console.log(data)
+    const data: any = await getProjectById(Number(id), locale)
+
+    if (!data?.Id) {
+        redirect(`/${locale}/off-plan`)
+    }
 
     return (
         <>

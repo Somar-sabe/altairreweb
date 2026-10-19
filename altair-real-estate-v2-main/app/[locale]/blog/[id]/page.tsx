@@ -1,3 +1,4 @@
+
 import Related from '@/components/media/single/Related'
 import SingleMain from '@/components/media/single/SingleMain'
 import { getArticlesById } from '@/utils/routes'
@@ -7,15 +8,31 @@ import React from 'react'
 
 export const revalidate = 30 * 60
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: { id: string }
+}): Promise<Metadata> {
     const { id } = params
     const locale = await getLocale()
-    const data = await getArticlesById(id, locale)
+
+    const data: any = await getArticlesById(Number(id), locale)
+
+    const title = data?.Title || 'Real Estate Blog'
+    const description = data?.Sections?.[0]?.Description || ''
+
+    const images = [
+        data?.ImagePathFull,
+        ...(data?.Sections || [])
+            .filter((item: any) => item?.ImagePathFull)
+            .map((item: any) => item.ImagePathFull),
+    ].filter(Boolean)
+
     return {
-        title: data?.Title,
-        description: data?.Sections?.[0]?.Description,
+        title,
+        description,
         keywords: [
-            data?.Title,
+            title,
             'Real Estate',
             'UAE',
             'Dubai',
@@ -23,23 +40,22 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
             'Real Estate Blog',
         ],
         openGraph: {
-            title: data?.Title,
-            description: data?.Sections?.[0]?.Description,
-            images: [
-                data?.ImagePathFull,
-                data?.Sections?.filter(
-                    (item: any) => item?.ImagePathFull != ''
-                )?.map((item: any) => item?.ImagePathFull ?? ''),
-            ],
+            title,
+            description,
+            images,
         },
     }
 }
 
-const Page = async (props: any) => {
-    const { id } = props?.params
+const Page = async ({
+    params,
+}: {
+    params: { id: string }
+}) => {
+    const { id } = params
     const locale = await getLocale()
-    const data = await getArticlesById(id, locale)
-    console.log('blog', data)
+
+    const data: any = await getArticlesById(Number(id), locale)
 
     return (
         <>
