@@ -8,7 +8,19 @@ import {
 } from '@/utils/routes'
 import { getServerSideSitemap } from 'next-sitemap'
 
-export async function GET(request: Request) {
+export const dynamic = 'force-static'
+
+// يرجع مصفوفة دائماً، حتى لو الدالة رجّعت شيئاً آخر أو فشلت
+async function safeSlugs(fn: () => Promise<unknown>): Promise<string[]> {
+    try {
+        const res = await fn()
+        return Array.isArray(res) ? (res as string[]) : []
+    } catch {
+        return []
+    }
+}
+
+export async function GET() {
     let basicUrls: string[] = [
         '/',
         '/off-plan',
@@ -23,29 +35,23 @@ export async function GET(request: Request) {
         '/partnership',
     ]
 
-    const projects = (await getProjectSitemap()) as unknown as string[]
+    const projects = await safeSlugs(getProjectSitemap)
     basicUrls = [
         ...basicUrls,
-        ...projects.map((slug: string) => `/off-plan/${slug}`),
+        ...projects.map((slug) => `/off-plan/${slug}`),
     ]
 
-    const sales = (await getSalesSitemap()) as unknown as string[]
-    basicUrls = [
-        ...basicUrls,
-        ...sales.map((slug: string) => `/secondary/${slug}`),
-    ]
+    const sales = await safeSlugs(getSalesSitemap)
+    basicUrls = [...basicUrls, ...sales.map((slug) => `/secondary/${slug}`)]
 
-    const rentals = (await getRentalsSitemap()) as unknown as string[]
-    basicUrls = [
-        ...basicUrls,
-        ...rentals.map((slug: string) => `/rent/${slug}`),
-    ]
+    const rentals = await safeSlugs(getRentalsSitemap)
+    basicUrls = [...basicUrls, ...rentals.map((slug) => `/rent/${slug}`)]
 
-    const blogs = (await getBlogsSitemap()) as unknown as string[]
-    basicUrls = [...basicUrls, ...blogs.map((slug: string) => `/blog/${slug}`)]
+    const blogs = await safeSlugs(getBlogsSitemap)
+    basicUrls = [...basicUrls, ...blogs.map((slug) => `/blog/${slug}`)]
 
-    const news = (await getNewsSitemap()) as unknown as string[]
-    basicUrls = [...basicUrls, ...news.map((slug: string) => `/news/${slug}`)]
+    const news = await safeSlugs(getNewsSitemap)
+    basicUrls = [...basicUrls, ...news.map((slug) => `/news/${slug}`)]
 
     let sitemaps: any[] = []
 
