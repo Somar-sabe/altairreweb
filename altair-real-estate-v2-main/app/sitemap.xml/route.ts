@@ -10,7 +10,7 @@ import { getServerSideSitemap } from 'next-sitemap'
 
 export const dynamic = 'force-static'
 
-// يرجع مصفوفة دائماً، حتى لو الدالة رجّعت شيئاً آخر أو فشلت
+// يرجع مdflصفوفة دائماً، حتى لو الدالة رجّعت شيئاً آخر أو فشلت
 async function safeSlugs(fn: () => Promise<unknown>): Promise<string[]> {
     try {
         const res = await fn()
