@@ -41,7 +41,7 @@ export default function PropertyFilteringBannerTwo() {
     const locale = useLocale()
     const t = useTranslations('OffPlan.Main')
 
-    const { data, isLoading } = useQuery(
+    const { data, isLoading } = useQuery<any>(
         ['buyProjects', locale, selectedPage, searchParams?.toString()],
         () =>
             getProjects(
@@ -60,13 +60,6 @@ export default function PropertyFilteringBannerTwo() {
                 locale
             )
     )
-
-    // useEffect(() => {
-    //     window.scrollTo({
-    //         top: ref?.current?.getBoundingClientRect()?.top,
-    //         behavior: 'smooth',
-    //     })
-    // }, [page])
 
     const [isFirstLoad, setFirstLoad] = useState(true)
     useEffect(() => {
@@ -115,17 +108,11 @@ export default function PropertyFilteringBannerTwo() {
                             </div>
                         </div>
                     </div>
-                    {/* End .container */}
                 </div>
             </section>
-            {/* End property-banner-style2 */}
-
-            {/* Breadcumb Sections */}
 
             <Breadcrumb tab={t('Breadcrumb')} title={t('Title')} />
-            {/* End Breadcumb Sections */}
 
-            {/* Property Filtering */}
             <section className="pt0 pb90 bgc-f7 !overflow-x-hidden">
                 <div className="container">
                     <div className="row gx-xl-5">
@@ -143,25 +130,20 @@ export default function PropertyFilteringBannerTwo() {
                                     data={data?.Data ?? []}
                                 />
                             </div>
-                            {/* End .row */}
 
                             <div className="row text-center pt-4">
                                 <Pagination
                                     page={selectedPage}
-                                    totalPages={data?.PageCount}
+                                    totalPages={data?.PageCount ?? 0}
                                     offset={3}
                                     onChange={(newPage) =>
                                         updateSearchParams('Page', newPage + '')
                                     }
                                 />
                             </div>
-                            {/* End .row */}
                         </div>
-                        {/* End col-8 */}
                     </div>
-                    {/* End TopFilterBar */}
                 </div>
-                {/* End .container */}
             </section>
         </>
     )

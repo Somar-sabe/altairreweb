@@ -17,7 +17,7 @@ const index = ({ IsBlog }: Props) => {
     const [page, setPage] = useState(1)
     const locale = useLocale()
 
-    const { data, isLoading, refetch } = useQuery(
+    const { data, isLoading, refetch } = useQuery<any>(
         ['articles', page, locale, IsBlog],
         () =>
             getArticles(
@@ -51,36 +51,6 @@ const index = ({ IsBlog }: Props) => {
     return (
         <section className="our-blog pt-0" ref={ref}>
             <div className="container ">
-                {/* <ul className="nav nav-pills pb-10 dark-light-navtab style2 justify-content-start justify-content-lg-end gap-[10px]">
-                    <li className="nav-item">
-                        <button
-                            className={`nav-link mb10-sm !mr-0 ${
-                                isBlog ? 'active' : ''
-                            }`}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                setBlog(true)
-                            }}
-                        >
-                            {'Posts'}
-                        </button>
-                    </li>
-
-                    <li className="nav-item">
-                        <button
-                            className={`nav-link mb10-sm !mr-0 ${
-                                !isBlog ? 'active' : ''
-                            }`}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                setBlog(false)
-                            }}
-                        >
-                            {'News'}
-                        </button>
-                    </li>
-                </ul> */}
-
                 <div className="w-full" data-aos="fade-up" data-aos-delay="300">
                     <div className="w-full grid md:grid-cols-2 custom-lg:grid-cols-3 gap-10">
                         {data?.Data?.map((item: any, index: number) => {
@@ -99,8 +69,6 @@ const index = ({ IsBlog }: Props) => {
                         })}
 
                         {isLoading && <SkeletonCard numRows={3} />}
-
-                        {/* End .row */}
                     </div>
                     <div className="row">
                         <div className="mbp_pagination text-center">
@@ -110,21 +78,10 @@ const index = ({ IsBlog }: Props) => {
                                 onChange={(newPage) => setPage(newPage)}
                                 totalPages={data?.PageCount ?? 0}
                             />
-                            {/* <p className="mt10 pagination_page_count text-center">
-                                    1 - 20 of 300+ property available
-                                </p> */}
                         </div>
                     </div>
-                    {/* End .col-lg-8 */}
-
-                    {/* <div className="col-lg-4">
-                        <Sidebar />
-                    </div> */}
-                    {/* End .col-lg-4 */}
                 </div>
-                {/* End .row */}
             </div>
-            {/* End .container */}
         </section>
     )
 }

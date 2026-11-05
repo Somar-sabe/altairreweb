@@ -9,8 +9,6 @@ import {
 import { getServerSideSitemap } from 'next-sitemap'
 
 export async function GET(request: Request) {
-    // Method to source urls from cms
-    // const urls = await fetch('https//example.com/api')
     let basicUrls: string[] = [
         '/',
         '/off-plan',
@@ -25,39 +23,35 @@ export async function GET(request: Request) {
         '/partnership',
     ]
 
-    const projects = await getProjectSitemap()
-
+    const projects = (await getProjectSitemap()) as unknown as string[]
     basicUrls = [
         ...basicUrls,
         ...projects.map((slug: string) => `/off-plan/${slug}`),
     ]
 
-    const sales = await getSalesSitemap()
-
+    const sales = (await getSalesSitemap()) as unknown as string[]
     basicUrls = [
         ...basicUrls,
         ...sales.map((slug: string) => `/secondary/${slug}`),
     ]
 
-    const rentals = await getRentalsSitemap()
-
+    const rentals = (await getRentalsSitemap()) as unknown as string[]
     basicUrls = [
         ...basicUrls,
         ...rentals.map((slug: string) => `/rent/${slug}`),
     ]
 
-    const blogs = await getBlogsSitemap()
-
+    const blogs = (await getBlogsSitemap()) as unknown as string[]
     basicUrls = [...basicUrls, ...blogs.map((slug: string) => `/blog/${slug}`)]
 
-    const news = await getNewsSitemap()
-
+    const news = (await getNewsSitemap()) as unknown as string[]
     basicUrls = [...basicUrls, ...news.map((slug: string) => `/news/${slug}`)]
 
     let sitemaps: any[] = []
 
     for (const locale of locales) {
         sitemaps = [
+            ...sitemaps,
             ...basicUrls.map((item) => ({
                 loc: `https://www.altairre.ae/${locale}${item}`,
             })),

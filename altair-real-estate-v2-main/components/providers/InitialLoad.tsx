@@ -13,10 +13,12 @@ type Props = {
 const InitialLoad = ({ children }: Props) => {
     const locale = useLocale()
     const dispatch = useAppDispatch()
-    const { data } = useQuery(['masterData', locale], () =>
+    const { data } = useQuery<any>(['masterData', locale], () =>
         getMasterData(locale)
     )
-    const { data: data2 } = useQuery(['currenciesData'], () => getCurrencies())
+    const { data: data2 } = useQuery<any>(['currenciesData'], () =>
+        getCurrencies()
+    )
 
     const currencies = ['aed', 'usd', 'eur', 'rub', 'sar', 'cny', 'kzt']
 
