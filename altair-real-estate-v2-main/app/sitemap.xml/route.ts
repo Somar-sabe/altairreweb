@@ -1,68 +1,154 @@
-import { locales } from '@/navigation'
-import {
-    getBlogsSitemap,
-    getNewsSitemap,
-    getProjectSitemap,
-    getRentalsSitemap,
-    getSalesSitemap,
-} from '@/utils/routes'
-import { getServerSideSitemap } from 'next-sitemap'
+import { getProjects as getMockProjects, projects } from '@/data/projects'
 
-export const dynamic = 'force-static'
+type EmptyList = {
+    Data: any[]
+    Items: any[]
+    Results: any[]
+    Count: number // used by PropertyFilteringBannerTwo
+    PageCount: number // used by PropertyFilteringBannerTwo
+    TotalCount: number
+    Total: number
+    Page: number
+    PageSize: number
+}
 
-// يرجع مdflصفوفة دائماً، حتى لو الدالة رجّعت شيئاً آخر أو فشلت
-async function safeSlugs(fn: () => Promise<unknown>): Promise<string[]> {
-    try {
-        const res = await fn()
-        return Array.isArray(res) ? (res as string[]) : []
-    } catch {
-        return []
+type EmptyData = {
+    Data: any[]
+}
+
+const emptyList: EmptyList = {
+    Data: [],
+    Items: [],
+    Results: [],
+    Count: 0,
+    PageCount: 0,
+    TotalCount: 0,
+    Total: 0,
+    Page: 0,
+    PageSize: 0,
+}
+
+const emptyData: EmptyData = {
+    Data: [],
+}
+
+export const getProperties = async (
+    params?: { [key: string]: any },
+    lang = 'en'
+): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getPropertyById = async (
+    Id: number,
+    lang = 'en'
+): Promise<any> => {
+    return {
+        Id,
+        Name: '',
+        Title: '',
+        Description: '',
+        Price: 0,
+        Area: { Name: '' },
+        City: { Name: '' },
+        Developer: { Name: '' },
+        Images: [],
+        Sections: [],
     }
 }
 
-export async function GET() {
-    let basicUrls: string[] = [
-        '/',
-        '/off-plan',
-        '/secondary',
-        '/rent',
-        '/blog',
-        '/contact',
-        '/faq',
-        '/privacy-policy',
-        '/about-company',
-        '/our-team',
-        '/partnership',
-    ]
+// ---- Projects: served from the local mock (src/data/projects.ts) ----
+export const getProjects = async (
+    params?: { [key: string]: any },
+    lang = 'en'
+): Promise<any> => {
+    return getMockProjects(
+        { PageSize: 9, Page: 0, ...(params ?? {}) },
+        lang
+    )
+}
 
-    const projects = await safeSlugs(getProjectSitemap)
-    basicUrls = [
-        ...basicUrls,
-        ...projects.map((slug) => `/off-plan/${slug}`),
-    ]
+export const getProjectById = async (
+    Id: number | string,
+    lang = 'en'
+): Promise<any> => {
+    // The URL carries a slug like "al-abeir-tower-945": accept slug or numeric id.
+    const raw = String(Id)
+    const num = parseInt(raw.split('-').pop() ?? '', 10)
+    const p = projects.find((x) => x.Slug === raw || x.Id === num)
+    // Not found: no Id, so the page redirects back to the list.
+    return p ?? { Name: '', Images: [] }
+}
 
-    const sales = await safeSlugs(getSalesSitemap)
-    basicUrls = [...basicUrls, ...sales.map((slug) => `/secondary/${slug}`)]
+export const getMasterData = async (lang = 'en'): Promise<EmptyData> => {
+    return emptyData
+}
 
-    const rentals = await safeSlugs(getRentalsSitemap)
-    basicUrls = [...basicUrls, ...rentals.map((slug) => `/rent/${slug}`)]
+export const getCurrencies = async (): Promise<EmptyData> => {
+    return emptyData
+}
 
-    const blogs = await safeSlugs(getBlogsSitemap)
-    basicUrls = [...basicUrls, ...blogs.map((slug) => `/blog/${slug}`)]
+export const getTeam = async (
+    params: { [key: string]: any },
+    lang = 'en'
+): Promise<EmptyList> => {
+    return emptyList
+}
 
-    const news = await safeSlugs(getNewsSitemap)
-    basicUrls = [...basicUrls, ...news.map((slug) => `/news/${slug}`)]
-
-    let sitemaps: any[] = []
-
-    for (const locale of locales) {
-        sitemaps = [
-            ...sitemaps,
-            ...basicUrls.map((item) => ({
-                loc: `https://www.altairre.ae/${locale}${item}`,
-            })),
-        ]
+export const postContact = async (params: {
+    [key: string]: any
+}): Promise<{ success: boolean; message: string }> => {
+    return {
+        success: false,
+        message: 'Contact submission is unavailable in static mode.',
     }
+}
 
-    return await getServerSideSitemap(sitemaps)
+export const getArticles = async (
+    params: { [key: string]: any },
+    lang = 'en'
+): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getArticlesById = async (
+    id: number,
+    lang = 'en'
+): Promise<any> => {
+    return {
+        Id: id,
+        Title: '',
+        Description: '',
+        Sections: [],
+        Images: [],
+    }
+}
+
+export const postSubscribe = async (params: {
+    [key: string]: any
+}): Promise<{ success: boolean; message: string }> => {
+    return {
+        success: false,
+        message: 'Subscription is unavailable in static mode.',
+    }
+}
+
+export const getProjectSitemap = async (): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getSalesSitemap = async (): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getRentalsSitemap = async (): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getBlogsSitemap = async (): Promise<EmptyList> => {
+    return emptyList
+}
+
+export const getNewsSitemap = async (): Promise<EmptyList> => {
+    return emptyList
 }

@@ -1,7 +1,11 @@
+import { getProjects as getMockProjects, projects } from '@/data/projects'
+
 type EmptyList = {
     Data: any[]
     Items: any[]
     Results: any[]
+    Count: number // used by PropertyFilteringBannerTwo
+    PageCount: number // used by PropertyFilteringBannerTwo
     TotalCount: number
     Total: number
     Page: number
@@ -16,6 +20,8 @@ const emptyList: EmptyList = {
     Data: [],
     Items: [],
     Results: [],
+    Count: 0,
+    PageCount: 0,
     TotalCount: 0,
     Total: 0,
     Page: 0,
@@ -51,33 +57,48 @@ export const getPropertyById = async (
     }
 }
 
+// ---- Projects: served from the local mock (src/data/projects.ts) ----
 export const getProjects = async (
     params?: { [key: string]: any },
     lang = 'en'
-): Promise<EmptyList> => {
-    return emptyList
+): Promise<any> => {
+    return getMockProjects(
+        { PageSize: 9, Page: 0, ...(params ?? {}) },
+        lang
+    )
 }
 
 export const getProjectById = async (
     Id: number,
     lang = 'en'
 ): Promise<any> => {
+    const p = projects.find((x) => x.Id === Number(Id))
+    if (!p) {
+        return {
+            Id,
+            Name: '',
+            Title: '',
+            Description: '',
+            Area: { Name: '' },
+            City: { Name: '' },
+            Developer: { Name: '' },
+            Images: [],
+            Sections: [],
+        }
+    }
+    // Detail-page shape is an assumption: adjust once the real fields are known.
     return {
-        Id,
-        Name: '',
-        Title: '',
+        ...p,
+        Title: p.Name,
         Description: '',
-        Area: { Name: '' },
-        City: { Name: '' },
+        City: { Name: 'Dubai' },
         Developer: { Name: '' },
-        Images: [],
+        Images: [p.ImagePath],
         Sections: [],
     }
 }
 
-export const getMasterData = async (
-    lang = 'en'
-): Promise<EmptyData> => {
+export const getMasterData = async (lang = 'en'): Promise<EmptyData> => {
     return emptyData
 }
 
@@ -92,9 +113,9 @@ export const getTeam = async (
     return emptyList
 }
 
-export const postContact = async (
-    params: { [key: string]: any }
-): Promise<{ success: boolean; message: string }> => {
+export const postContact = async (params: {
+    [key: string]: any
+}): Promise<{ success: boolean; message: string }> => {
     return {
         success: false,
         message: 'Contact submission is unavailable in static mode.',
@@ -121,9 +142,9 @@ export const getArticlesById = async (
     }
 }
 
-export const postSubscribe = async (
-    params: { [key: string]: any }
-): Promise<{ success: boolean; message: string }> => {
+export const postSubscribe = async (params: {
+    [key: string]: any
+}): Promise<{ success: boolean; message: string }> => {
     return {
         success: false,
         message: 'Subscription is unavailable in static mode.',

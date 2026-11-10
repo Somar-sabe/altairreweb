@@ -31,6 +31,11 @@ const nextConfig = {
                 hostname: '*api.altairre.ae',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'altairre-dev.pages.dev',
+                pathname: '/**',
+            },
         ],
         minimumCacheTTL: 31536000,
     },

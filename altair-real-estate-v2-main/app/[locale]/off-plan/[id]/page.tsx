@@ -1,4 +1,3 @@
-
 import React from 'react'
 
 import { getProjectById } from '@/utils/routes'
@@ -11,6 +10,10 @@ const SingleProperty = dynamic(() => import('@/components/off-plan/single'))
 
 export const revalidate = 30 * 60
 
+// URL looks like /off-plan/al-abeir-tower-945 -> id = 945
+const parseProjectId = (slug: string) =>
+    parseInt(decodeURIComponent(slug).split('-').pop() ?? '', 10)
+
 export async function generateMetadata({
     params,
 }: {
@@ -19,7 +22,7 @@ export async function generateMetadata({
     const { id } = params
     const locale = await getLocale()
 
-    const data: any = await getProjectById(Number(id), locale)
+    const data: any = await getProjectById(parseProjectId(id), locale)
 
     const title = data?.Name || 'Off-Plan Property'
     const description = data?.Description || ''
@@ -50,7 +53,7 @@ const Page = async ({
     const { id } = params
     const locale = await getLocale()
 
-    const data: any = await getProjectById(Number(id), locale)
+    const data: any = await getProjectById(parseProjectId(id), locale)
 
     if (!data?.Id) {
         redirect(`/${locale}/off-plan`)
