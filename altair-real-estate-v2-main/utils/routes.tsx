@@ -62,40 +62,19 @@ export const getProjects = async (
     params?: { [key: string]: any },
     lang = 'en'
 ): Promise<any> => {
-    return getMockProjects(
-        { PageSize: 9, Page: 0, ...(params ?? {}) },
-        lang
-    )
+    return getMockProjects({ PageSize: 9, Page: 0, ...(params ?? {}) }, lang)
 }
 
 export const getProjectById = async (
-    Id: number,
+    Id: number | string,
     lang = 'en'
 ): Promise<any> => {
-    const p = projects.find((x) => x.Id === Number(Id))
-    if (!p) {
-        return {
-            Id,
-            Name: '',
-            Title: '',
-            Description: '',
-            Area: { Name: '' },
-            City: { Name: '' },
-            Developer: { Name: '' },
-            Images: [],
-            Sections: [],
-        }
-    }
-    // Detail-page shape is an assumption: adjust once the real fields are known.
-    return {
-        ...p,
-        Title: p.Name,
-        Description: '',
-        City: { Name: 'Dubai' },
-        Developer: { Name: '' },
-        Images: [p.ImagePath],
-        Sections: [],
-    }
+    // The URL carries a slug like "al-abeir-tower-945": accept slug or numeric id.
+    const raw = String(Id)
+    const num = parseInt(raw.split('-').pop() ?? '', 10)
+    const p = projects.find((x) => x.Slug === raw || x.Id === num)
+    // Not found: no Id, so the page redirects back to the list.
+    return p ?? { Name: '', Images: [] }
 }
 
 export const getMasterData = async (lang = 'en'): Promise<EmptyData> => {

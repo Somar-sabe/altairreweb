@@ -3,40 +3,32 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import '@/public/scss/main.scss'
 import { store } from '@/store/store'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
 import InitialLoad from './InitialLoad'
-import { DM_Sans, Poppins } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import ScrollToTop from '../shared/ScrollToTop'
 import { usePathname } from '@/navigation'
-import ContactFormModal from '../shared/ContactFormModal'
+
+// Self-hosted fonts (no Google fetch at build time)
+import '@fontsource-variable/dm-sans'
+import '@fontsource/poppins/300.css'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
+import '@fontsource/poppins/800.css'
 
 type Props = {
     children?: React.ReactNode
 }
 
-// DM_Sans font
-export const dmSans = DM_Sans({
-    subsets: ['latin'],
-    weight: ['400', '500', '700'],
-    variable: '--body-font-family',
-})
-
-// Poppins font
-export const poppins = Poppins({
-    subsets: ['latin'],
-    weight: ['300', '400', '500', '600', '700', '800'],
-    variable: '--title-font-family',
-})
-
 const client = new QueryClient({
     defaultOptions: {
         queries: {
-            cacheTime: 35 * (60 * 1000), // 30 minutes,
-            staleTime: 30 * (60 * 1000),
+            cacheTime: 35 * (60 * 1000), // 35 minutes
+            staleTime: 30 * (60 * 1000), // 30 minutes
             refetchOnWindowFocus: false,
         },
     },
@@ -48,6 +40,7 @@ if (typeof window !== 'undefined') {
 
 const Providers = ({ children }: Props) => {
     const pathname = usePathname()
+
     useEffect(() => {
         Aos.init({
             duration: 1200,
@@ -76,13 +69,8 @@ const Providers = ({ children }: Props) => {
                 />
 
                 <InitialLoad>
-                    <div
-                        className={`wrapper ovh ${poppins?.className} ${dmSans?.className}`}
-                    >
-                        {children}
-                    </div>
+                    <div className="wrapper ovh">{children}</div>
                 </InitialLoad>
-                {/* <ScrollToTop /> */}
             </Provider>
         </QueryClientProvider>
     )

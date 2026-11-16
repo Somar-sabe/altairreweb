@@ -3,7 +3,6 @@ import { Route } from 'next'
 import { Link } from '@/navigation'
 import React, { Fragment } from 'react'
 import CustomImage from '../CustomImage'
-import { poppins } from '@/components/providers/Providers'
 import { useAppSelector } from '@/store/store'
 
 type Props = {
@@ -17,7 +16,6 @@ type Props = {
 
 const PropertyCard = ({
     img,
-
     price,
     name,
     location,
@@ -67,7 +65,8 @@ const PropertyCard = ({
                 }}
             >
                 <span
-                    className={`font-bold text-base ${poppins?.className} line-clamp-2 `}
+                    className="font-bold text-base line-clamp-2"
+                    style={{ fontFamily: 'var(--title-font-family)' }}
                 >
                     {name}
                 </span>
